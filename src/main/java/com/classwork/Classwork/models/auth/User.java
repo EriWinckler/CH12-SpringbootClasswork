@@ -8,14 +8,14 @@ import java.util.Set;
 
 @Entity
 @Table( name = "users", uniqueConstraints =
-    { @UniqueConstraint(columnNames = "isername")})
+    { @UniqueConstraint(columnNames = "username")})
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @NotBlank
-  private String firstName;
+  private String username;
 
   @NotBlank
   @Size(min = 5, message = "Cannot be under 5 characters")
@@ -29,8 +29,8 @@ public class User {
 
   public User() {}
 
-  public User(String firstName, String password) {
-    this.firstName = firstName;
+  public User(String username, String password) {
+    this.username = username;
     this.password = password;
   }
 
@@ -42,12 +42,12 @@ public class User {
     this.id = id;
   }
 
-  public String getFirstName() {
-    return firstName;
+  public String getUsername() {
+    return username;
   }
 
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   public String getPassword() {
